@@ -1,6 +1,8 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-source .colors
+source ~/.colors
+source ~/.aliases
+source ~/.bash-completion
 
 C1=$BWhite
 C2=''

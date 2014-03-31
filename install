@@ -1,0 +1,5 @@
+#!/bin/bash
+cp _bashrc ~/.bashrc
+cp _colors ~/.colors
+cp _aliases ~/.aliases
+cp _bash-completion ~/.bash-completion
