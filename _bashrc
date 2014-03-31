@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+source .colors
+
+C1=$BWhite
+C2=''
+C3=$BBlue
+C4=$BYellow
+C5=$BGreen
+C6=$BRed
+if [[ $EUID -ne 0 ]]; then
+    C2=$BYellow
+else
+    C2=$BRed
+fi
+VE=''
+export PS1=$C1'['$C2'\u'$C3'@'$C4'\h'$C1']'$C4'-'$C1'['$C3$VE$C5'\W'$C1']'$C4'-'$C1'['$C6'\$'$C1']'$C4'-> '$Color_Off
