@@ -3,6 +3,7 @@
 source ~/.colors
 source ~/.aliases
 source ~/.bash-completion
+source ~/.utility
 
 C1=$BWhite
 C2=''
