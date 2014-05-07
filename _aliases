@@ -10,15 +10,15 @@ alias gemacs='/usr/bin/emacs'
 alias emacs='emacs -nw'
 
 if [[ $EUID -ne 0 ]]; then
-    # Root
-    alias rm='rm'
-    alias cp='cp'
-    alias df='df'
-    alias du='du'
-else
     # Other
     alias rm='rm -rf'
     alias cp='cp -rd'
     alias df='df -h'
     alias du='du -skhes'
+else
+    # Root
+    alias rm='rm'
+    alias cp='cp'
+    alias df='df'
+    alias du='du'
 fi
