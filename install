@@ -4,3 +4,4 @@ cp _colors ~/.colors
 cp _aliases ~/.aliases
 cp _bash-completion ~/.bash-completion
 cp _utility ~/.utility
+cp _path ~/.path

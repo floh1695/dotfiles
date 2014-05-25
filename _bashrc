@@ -4,6 +4,7 @@ source ~/.colors
 source ~/.aliases
 source ~/.bash-completion
 source ~/.utility
+source ~/.path
 
 C1=$BWhite
 C2=''
