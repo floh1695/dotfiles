@@ -14,7 +14,7 @@ if [[ $EUID -ne 0 ]]; then
     alias rm='rm -rf'
     alias cp='cp -rd'
     alias df='df -h'
-    alias du='du -skhes'
+    alias du='du -skh'
 else
     # Root
     alias rm='rm'
