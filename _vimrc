@@ -7,6 +7,7 @@ set expandtab
 set number
 set showmatch
 set wildmenu
+syntax enable
 
 "Folds
 set foldenable
