@@ -4,6 +4,7 @@ source .colors
 
 #environment variables
 export PATH=$PATH:$HOME/bin
+export EDITOR=vim
 
 #set the aliases I prefer
 alias ls='ls --color=auto -Fh'
