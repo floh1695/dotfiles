@@ -1,7 +1,9 @@
 #!/bin/bash
+
+#.bashrc
 cp _bashrc ~/.bashrc
 cp _colors ~/.colors
-cp _aliases ~/.aliases
-cp _bash-completion ~/.bash-completion
-cp _utility ~/.utility
-cp _path ~/.path
+
+#.vimrc
+cp _vimrc ~/.vimrc
+
