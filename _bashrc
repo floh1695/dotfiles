@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .colors
+source $HOME/.colors
 
 #environment variables
 export PATH=$PATH:$HOME/bin
