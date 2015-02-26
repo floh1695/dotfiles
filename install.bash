@@ -15,12 +15,12 @@ install_dir() {
   env=$1
   dir=$2
   mkdir -p $env
-  ln -s $env $dir
+  ln -sf $env $dir
 }
 
 #.bashrc
 bashdir="$HOME/envir/etc/bashrc"
-install_dir "$bashdir" "$HOME/.ectbash"
+install_dir "$bashdir" "$HOME/.etcbash"
 install "bash_profile.bash" "$bashdir" "$HOME/.bash_profile"
 install "bashrc.bash"       "$bashdir" "$HOME/.bashrc"
 install "colors.bash"       "$bashdir" ""
@@ -28,5 +28,5 @@ install "colors.bash"       "$bashdir" ""
 #.vimrc
 vimdir="$HOME/envir/etc/vimrc"
 install_dir "$vimdir" "$HOME/.etcvim"
-install "vimrc.vim"
+install "vimrc.vim" "$vimdir" ".vimrc"
 
