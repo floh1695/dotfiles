@@ -28,5 +28,5 @@ install "colors.bash"       "$bashdir" ""
 #.vimrc
 vimdir="$HOME/envir/etc/vimrc"
 install_dir "$vimdir" "$HOME/.etcvim"
-install "vimrc.vim" "$vimdir" ".vimrc"
+install "vimrc.vim" "$vimdir" "$HOME/.vimrc"
 
