@@ -34,6 +34,7 @@ export VISUAL="$(pick_visual)"
 unset -f pick_visual
 pick_pager() {
   if type less > /dev/null; then
+    export LESS="-R"
     echo "less"
   elif type more > /dev/null; then
     echo "more"
@@ -58,6 +59,13 @@ pick_browser() {
 }
 export BROWSER="$(pick_browser)"
 unset -f pick_browser
+printvars() {
+  echo "PATH:    $PATH"
+  echo "EDITOR:  $EDITOR"
+  echo "VISUAL:  $VISUAL"
+  echo "PAGER:   $PAGER"
+  echo "BROWSER: $BROWSER"
+}
 
 # Aliases
 alias ls='ls --color=auto -Fh'

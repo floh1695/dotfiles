@@ -30,3 +30,8 @@ vimdir="$HOME/envir/etc/vimrc"
 install_dir "$vimdir" "$HOME/.etcvim"
 install "vimrc.vim" "$vimdir" "$HOME/.vimrc"
 
+#.gitconfig
+gitdir="$HOME/envir/etc/git"
+install_dir "$gitdir" "$HOME/.etcgit"
+install "gitconfig.git" "$gitdir" "$HOME/.gitconfig"
+
