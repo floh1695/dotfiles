@@ -21,7 +21,7 @@ pick_visual() {
   if type vim > /dev/null; then
     echo "vim"
   elif type emacs > /dev/null; then
-    echo "emacs"
+    echo "emacs -nw"
   elif type vi > /dev/null; then
     echo "vi"
   elif type nano > /dev/null; then
