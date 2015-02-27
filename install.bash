@@ -34,4 +34,5 @@ install "vimrc.vim" "$vimdir" "$HOME/.vimrc"
 gitdir="$HOME/envir/etc/git"
 install_dir "$gitdir" "$HOME/.etcgit"
 install "gitconfig.git" "$gitdir" "$HOME/.gitconfig"
+install "gitignore.git" "$gitdir" "$HOME/.gitignore"
 
