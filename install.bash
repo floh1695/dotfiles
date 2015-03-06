@@ -12,10 +12,10 @@ install() {
 }
 
 install_dir() {
-  env=$1
-  dir=$2
-  mkdir -p $env
-  ln -sf $env $dir
+  env="$1"
+  dir="$2"
+  mkdir -p "$env"
+  ln -sf "$env" "$dir"
 }
 
 #.bashrc
