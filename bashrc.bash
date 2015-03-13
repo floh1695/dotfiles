@@ -96,7 +96,12 @@ alias dirs='dirs -v'
 
 # PS Variables
 C1=$BIWhite
-C2=$BYellow
+C2=""
+if [[ $EUID -ne 0 ]]; then
+  C2=$BYellow
+else
+  C2=$BRed
+fi
 C3=$BBlue
 C4=$BYellow
 C5=$BGreen
