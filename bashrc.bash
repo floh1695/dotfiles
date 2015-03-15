@@ -81,7 +81,11 @@ pushd() {
   else
     DIR="$1"
   fi
-  builtin pushd "${DIR}" &> /dev/null
+  if [ -d "${DIR}" ]; then
+    builtin pushd "${DIR}" &> /dev/null
+  else
+    echo "no directory: \"${DIR}\""
+  fi
 }
 pushd_builtin() {
   builtin pushd &> /dev/null
