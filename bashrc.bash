@@ -5,6 +5,7 @@ srcdir="$HOME/.etcbash"
 source "$srcdir/style.bash"
 
 export TERMINAL=""
+export PATH="${PATH}:${HOME}/bin"
 pick_visual() {
   if type vim &> /dev/null; then
     echo "vim"
