@@ -3,20 +3,6 @@
 # includes
 srcdir="$HOME/.etcbash"
 source "$srcdir/colors.bash"
-
-# Environment Variables
-export PATH="$PATH:$HOME/bin"
-pick_editor() {
-  if type nano &> /dev/null; then
-    echo "nano"
-  elif type ed &> /dev/null; then
-    echo "ed"
-  else
-    echo ""
-  fi
-}
-export EDITOR="$(pick_editor)"
-unset -f pick_editor
 pick_visual() {
   if type vim &> /dev/null; then
     echo "vim"
@@ -29,8 +15,9 @@ pick_visual() {
   else
     echo ""
    fi
- }
+}
 export VISUAL="$(pick_visual)"
+export EDITOR="$(pick_visual)"
 unset -f pick_visual
 pick_pager() {
   if type less &> /dev/null; then
