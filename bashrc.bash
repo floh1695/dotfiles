@@ -2,6 +2,7 @@
 
 # includes
 srcdir="$HOME/.etcbash"
+export TERMINAL=""
 source "$srcdir/colors.bash"
 pick_visual() {
   if type vim &> /dev/null; then
