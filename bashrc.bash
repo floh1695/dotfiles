@@ -87,13 +87,3 @@ alias back='popd'
 alias flip='pushd_builtin'
 alias dirs='dirs -v'
 
-# PS Variables
-C1=$BIWhite
-C2=$BYellow
-C3=$BBlue
-C4=$BYellow
-C5=$BGreen
-C6=$BRed
-export PS1="${Yellow}\u${Cyan}@${Yellow}\h ${White}[${Green}\W${White}] ${BRED}\$${Yellow}-> ${Color_Off}"
-export PS2="$C4-> $Color_Off"
-
