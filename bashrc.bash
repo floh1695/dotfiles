@@ -2,8 +2,9 @@
 
 # includes
 srcdir="$HOME/.etcbash"
+source "$srcdir/style.bash"
+
 export TERMINAL=""
-source "$srcdir/colors.bash"
 pick_visual() {
   if type vim &> /dev/null; then
     echo "vim"
@@ -93,6 +94,6 @@ C3=$BBlue
 C4=$BYellow
 C5=$BGreen
 C6=$BRed
-export PS1="$C1[$C2\u$C3@$C4\h$C1]$C1[$C5\W$C1]$C1[$C6\$$C1]$C4-> $Color_Off"
+export PS1="${Yellow}\u${Cyan}@${Yellow}\h ${White}[${Green}\W${White}] ${BRED}\$${Yellow}-> ${Color_Off}"
 export PS2="$C4-> $Color_Off"
 

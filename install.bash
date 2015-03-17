@@ -24,6 +24,7 @@ install_dir "$bashdir" "$HOME/.etcbash"
 install "bash_profile.bash" "$bashdir" "$HOME/.bash_profile"
 install "bashrc.bash"       "$bashdir" "$HOME/.bashrc"
 install "colors.bash"       "$bashdir" ""
+install "style.bash"        "$bashdir" ""
 
 #.vimrc
 vimdir="$HOME/envir/etc/vimrc"
