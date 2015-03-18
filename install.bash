@@ -22,6 +22,7 @@ install_dir() {
 bashdir="$HOME/envir/etc/bashrc"
 install_dir "$bashdir" "$HOME/.etcbash"
 install "bash_profile.bash" "$bashdir" "$HOME/.bash_profile"
+install "bash_logout.bash"  "$bashdir" "$HOME/.bash_logout"
 install "bashrc.bash"       "$bashdir" "$HOME/.bashrc"
 install "colors.bash"       "$bashdir" ""
 install "style.bash"        "$bashdir" ""
