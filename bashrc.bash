@@ -4,7 +4,6 @@
 srcdir="$HOME/.etcbash"
 source "$srcdir/style.bash"
 
-export TERMINAL=""
 pick_visual() {
   if type vim &> /dev/null; then
     echo "vim"
@@ -18,9 +17,6 @@ pick_visual() {
     echo ""
    fi
 }
-export VISUAL="$(pick_visual)"
-export EDITOR="$(pick_visual)"
-unset -f pick_visual
 pick_pager() {
   if type less &> /dev/null; then
     export LESS="-R"
@@ -31,8 +27,6 @@ pick_pager() {
     echo ""
   fi
 }
-export PAGER="$(pick_pager)"
-unset -f pick_pager
 pick_browser() {
   if type firefox &> /dev/null; then
     echo "firefox"
@@ -47,7 +41,13 @@ pick_browser() {
   fi
 }
 export BROWSER="$(pick_browser)"
+export VISUAL="$(pick_visual)"
+export EDITOR="$(pick_visual)"
+export PAGER="$(pick_pager)"
+export TERMINAL="" #TODO: Find a good list of terminal emulators to default to
 unset -f pick_browser
+unset -f pick_visual
+unset -f pick_pager
 printvars() {
   echo "PATH:    $PATH"
   echo "EDITOR:  $EDITOR"
@@ -64,7 +64,6 @@ alias lr='ll -R'
 alias l='ls -C'
 alias c='clear'
 alias clear="source $HOME/.bashrc; command clear"
-
 pushd() {
   if [ $# -eq 0 ]; then
     DIR="${HOME}"
@@ -87,4 +86,7 @@ alias cd='pushd'
 alias back='popd'
 alias flip='pushd_builtin'
 alias dirs='dirs -v'
+
+# shopt
+shopt -s checkwinsize
 
