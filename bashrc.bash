@@ -63,6 +63,7 @@ alias la='ll -a'
 alias lr='ll -R'
 alias l='ls -C'
 alias c='clear'
+alias clear="source $HOME/.bashrc; command clear"
 
 pushd() {
   if [ $# -eq 0 ]; then
