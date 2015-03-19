@@ -2,21 +2,10 @@
 
 # includes
 srcdir="$HOME/.etcbash"
-source "$srcdir/colors.bash"
+source "$srcdir/style.bash"
 
-# Environment Variables
-export PATH="$PATH:$HOME/bin"
-pick_editor() {
-  if type nano &> /dev/null; then
-    echo "nano"
-  elif type ed &> /dev/null; then
-    echo "ed"
-  else
-    echo ""
-  fi
-}
-export EDITOR="$(pick_editor)"
-unset -f pick_editor
+export PATH="${PATH}:${HOME}/bin"
+
 pick_visual() {
   if type vim &> /dev/null; then
     echo "vim"
@@ -29,9 +18,7 @@ pick_visual() {
   else
     echo ""
    fi
- }
-export VISUAL="$(pick_visual)"
-unset -f pick_visual
+}
 pick_pager() {
   if type less &> /dev/null; then
     export LESS="-R"
@@ -42,8 +29,6 @@ pick_pager() {
     echo ""
   fi
 }
-export PAGER="$(pick_pager)"
-unset -f pick_pager
 pick_browser() {
   if type firefox &> /dev/null; then
     echo "firefox"
@@ -58,7 +43,13 @@ pick_browser() {
   fi
 }
 export BROWSER="$(pick_browser)"
+export VISUAL="$(pick_visual)"
+export EDITOR="$(pick_visual)"
+export PAGER="$(pick_pager)"
+export TERMINAL="" #TODO: Find a good list of terminal emulators to default to
 unset -f pick_browser
+unset -f pick_visual
+unset -f pick_pager
 printvars() {
   echo "PATH:    $PATH"
   echo "EDITOR:  $EDITOR"
@@ -74,14 +65,18 @@ alias la='ll -a'
 alias lr='ll -R'
 alias l='ls -C'
 alias c='clear'
-
+alias clear="source $HOME/.bashrc; command clear"
 pushd() {
   if [ $# -eq 0 ]; then
     DIR="${HOME}"
   else
     DIR="$1"
   fi
-  builtin pushd "${DIR}" &> /dev/null
+  if [ -d "${DIR}" ]; then
+    builtin pushd "${DIR}" &> /dev/null
+  else
+    echo "no directory: \"${DIR}\""
+  fi
 }
 pushd_builtin() {
   builtin pushd &> /dev/null
@@ -94,18 +89,6 @@ alias back='popd'
 alias flip='pushd_builtin'
 alias dirs='dirs -v'
 
-# PS Variables
-C1=$BIWhite
-C2=""
-if [[ $EUID -ne 0 ]]; then
-  C2=$BYellow
-else
-  C2=$BRed
-fi
-C3=$BBlue
-C4=$BYellow
-C5=$BGreen
-C6=$BRed
-export PS1="$C1[$C2\u$C3@$C4\h$C1]$C1[$C5\W$C1]$C1[$C6\$$C1]$C4-> $Color_Off"
-export PS2="$C4-> $Color_Off"
+# shopt
+shopt -s checkwinsize
 

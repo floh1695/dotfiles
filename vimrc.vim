@@ -9,6 +9,9 @@ set showmatch
 set wildmenu
 syntax enable
 
+"Mouse related
+set mouse=a
+
 "Folds
 set foldenable
 set fdm=syntax
