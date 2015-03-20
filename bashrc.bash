@@ -4,52 +4,48 @@
 srcdir="$HOME/.etcbash"
 source "$srcdir/style.bash"
 
+# environment variables
 export PATH="${PATH}:${HOME}/bin"
-
 pick_visual() {
   if type vim &> /dev/null; then
-    echo "vim"
+    VISUAL="vim"
   elif type emacs &> /dev/null; then
-    echo "emacs -nw"
+    VISUAL="emacs -nw"
   elif type vi &> /dev/null; then
-    echo "vi"
+    VISUAL="vi"
   elif type nano &> /dev/null; then
-    echo "nano"
-  else
-    echo ""
-   fi
+    VISUAL="nano"
+  fi
+  export VISUAL
+  export EDITOR="${VISUAL}"
+  unset -f pick_visual
 }
 pick_pager() {
   if type less &> /dev/null; then
     export LESS="-R"
-    echo "less"
+    PAGER="less"
   elif type more &> /dev/null; then
-    echo "more"
-  else
-    echo ""
+    PAGER="more"
   fi
+  export PAGER
+  unset -f pick_pager
 }
 pick_browser() {
   if type firefox &> /dev/null; then
-    echo "firefox"
+    BROWSER="firefox"
   elif type chromium &> /dev/null; then
-    echo "chromium"
+    BROWSER="chromium"
   elif type opera &> /dev/null; then
-    echo "opera"
+    BROWSER="opera"
   elif type midori &> /dev/null; then
-    echo "midori"
-  else
-    echo ""
+    BROWSER="midori"
   fi
+  export BROWSER
+  unset -f pick_browser
 }
-export BROWSER="$(pick_browser)"
-export VISUAL="$(pick_visual)"
-export EDITOR="$(pick_visual)"
-export PAGER="$(pick_pager)"
-export TERMINAL="" #TODO: Find a good list of terminal emulators to default to
-unset -f pick_browser
-unset -f pick_visual
-unset -f pick_pager
+pick_visual
+pick_pager
+pick_browser
 printvars() {
   echo "PATH:    $PATH"
   echo "EDITOR:  $EDITOR"
