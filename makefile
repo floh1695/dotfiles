@@ -8,7 +8,7 @@ install: bash vim git
 
 ETC_DIR = $(HOME)/envir/etc
 
-BASH_DIR = $(ETC_DIR)/bashrc
+BASH_DIR = $(ETC_DIR)/bash
 bash:
 	$(MKDIR) $(BASH_DIR)
 	$(SYMLINK) $(BASH_DIR) $(HOME)/.etcbash
@@ -21,14 +21,14 @@ bash:
 	$(COPY) colors.bash $(BASH_DIR)
 	$(COPY)	style.bash $(BASH_DIR)
 
-VIM_DIR = $(ETC_DIR)/vimrc
+VIM_DIR = $(ETC_DIR)/vim
 vim:
 	$(MKDIR) $(VIM_DIR)
 	$(SYMLINK) $(VIM_DIR) $(HOME)/.etcvim	
 	$(COPY)    vimrc.vim $(VIM_DIR)
 	$(SYMLINK) $(VIM_DIR)/vimrc.vim $(HOME)/.vimrc
 
-GIT_DIR = $(ETC_DIR)/gitrc
+GIT_DIR = $(ETC_DIR)/git
 git:
 	$(MKDIR) $(GIT_DIR)
 	$(SYMLINK) $(GIT_DIR) $(HOME)/.etcgit
