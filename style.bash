@@ -4,7 +4,12 @@ srcdir="$HOME/.etcbash"
 source "$srcdir/colors.bash"
 prompt_set() {
   PS1_EXIT_STATUS="${?}"
-  PS1="${Yellow}\u${Cyan}@${Yellow}\h ${White}[${Green}\W${White}] "
+  if [ $UID -eq 0 ]; then
+    PS1="${Red}"
+  else
+    PS1="${Yellow}"
+  fi
+  PS1+="\u${Cyan}@${Yellow}\h ${White}[${Green}\W${White}] "
   if [ ${PS1_EXIT_STATUS} -eq 0 ]; then
     PS1+="${Green}"
   else
