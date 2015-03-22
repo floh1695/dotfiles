@@ -34,7 +34,7 @@ git:
 	$(COPY)    gitignore.git $(BASH_DIR)
 	$(SYMLINK) $(BASH_DIR)/gitignore.git $(HOME)/.gitignore
 
-X11_DIR = $(ETC_DIR)X11
+X11_DIR = $(ETC_DIR)/X11
 X11:
 	$(MKDIR) $(X11_DIR)
 	$(COPY) Xresources.X11 $(X11_DIR)
