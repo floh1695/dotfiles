@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # includes
-srcdir="$HOME/.etcbash"
+srcdir="$HOME/.envir/etc/bash"
 source "$srcdir/style.bash"
 
 # environment variables

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-srcdir="$HOME/.etcbash"
+srcdir="$HOME/.envir/etc/bash"
 source "$srcdir/colors.bash"
 prompt_set() {
   PS1_EXIT_STATUS="${?}"
