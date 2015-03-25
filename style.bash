@@ -9,7 +9,11 @@ prompt_set() {
   else
     PS1="${Yellow}"
   fi
-  PS1+="\u${Cyan}@${Yellow}\h ${White}[${Green}\W${White}] "
+  PS1+="\u${Cyan}@${Yellow}\h"
+  if [ -f "${HOME}/.virtualname" ]; then
+    PS1+="${Cyan}@${Yellow}$(cat ${HOME}/.virtualname)"
+  fi
+  PS1+=" ${White}[${Green}\W${White}] "
   if [ ${PS1_EXIT_STATUS} -eq 0 ]; then
     PS1+="${Green}"
   else

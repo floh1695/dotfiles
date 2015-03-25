@@ -10,7 +10,7 @@ set wildmenu
 syntax enable
 
 "Mouse related
-set mouse=a
+"set mouse=a
 
 "Folds
 set foldenable
