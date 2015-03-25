@@ -88,3 +88,8 @@ alias dirs='dirs -v'
 # shopt
 shopt -s checkwinsize
 
+# local configurations
+if [ -f "${HOME}/.localbashrc" ]; then
+  source "${HOME}/.localbashrc"
+fi
+
