@@ -4,8 +4,14 @@
 srcdir="$HOME/.envir/etc/bash"
 source "$srcdir/style.bash"
 
+# path
+if [[ ! "$PATH" == ?(*:)"${HOME}/bin"?(:*) ]]; then
+  PATH+=":${HOME}/bin"
+fi
+if [[ ! "$PATH" == ?(*:)"${HOME}/.cabal/bin"?(:*) ]]; then
+  PATH+=":${HOME}/.cabal/bin"
+fi
 # environment variables
-export PATH="${PATH}:${HOME}/bin"
 pick_visual() {
   if type vim &> /dev/null; then
     VISUAL="vim"
