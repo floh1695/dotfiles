@@ -12,7 +12,7 @@ fi
 
 if [ -f "${HOME}/.localxinitrc" ]; then
   source "${HOME}/.localxinitrc"
+else
+  exec i3 >> "$HOME/.i3/log.txt"
 fi
-
-exec i3 >> "$HOME/.i3/log.txt"
 
