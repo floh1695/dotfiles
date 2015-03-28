@@ -91,6 +91,8 @@ alias back='popd'
 alias flip='pushd_builtin'
 alias dirs='dirs -v'
 
+alias wget-mirror="wget --mirror --convert-links --adjust-extension --page-requisites --no-parent"
+
 # shopt
 shopt -s checkwinsize
 
