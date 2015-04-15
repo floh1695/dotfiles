@@ -13,10 +13,10 @@ source "$srcdir/style.bash"
 
 # path
 if [[ ! "$PATH" == ?(*:)"${HOME}/bin"?(:*) ]]; then
-  PATH+=":${HOME}/bin"
+  PATH="${HOME}/bin:${PATH}"
 fi
 if [[ ! "$PATH" == ?(*:)"${HOME}/.cabal/bin"?(:*) ]]; then
-  PATH+=":${HOME}/.cabal/bin"
+  PATH="${HOME}/.cabal/bin:${PATH}"
 fi
 # environment variables
 pick_visual() {
