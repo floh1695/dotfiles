@@ -66,7 +66,7 @@ gitignore: gitetc
 # Start of X11 related rules
 ##### ##### ##### ##### #####
 X11_DIR = $(ETC_DIR)/X11
-X11: Xresources xinitrc
+X11: Xresources xinitrc xprofile
 
 X11etc:
 	$(MKDIR) $(X11_DIR)
@@ -78,5 +78,8 @@ Xresources: X11etc
 xinitrc: X11etc
 	$(COPY) xinitrc.bash $(X11_DIR)
 	$(SYMLINK) $(X11_DIR)/xinitrc.bash $(HOME)/.xinitrc
-	$(SYMLINK) $(X11_DIR)/xinitrc.bash $(HOME)/.xprofile
+
+xprofile: X11etc
+	$(COPY) xprofile.bash $(X11_DIR)
+	$(SYMLINK) $(X11_DIR)/xprofile.bash $(HOME)/.xprofile
 
