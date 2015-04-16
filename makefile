@@ -26,11 +26,15 @@ bash_logout: bashetc
 	$(COPY)    bash_logout.bash $(BASH_DIR)
 	$(SYMLINK) $(BASH_DIR)/bash_logout.bash $(HOME)/.bash_logout
 
-bashrc: bashetc
+bash_colors: bashetc	
+	$(COPY) colors.bash $(BASH_DIR)
+
+bash_style: bashetc bash_colors
+	$(COPY)	style.bash $(BASH_DIR)
+
+bashrc: bashetc bash_style
 	$(COPY)    bashrc.bash $(BASH_DIR)
 	$(SYMLINK) $(BASH_DIR)/bashrc.bash $(HOME)/.bashrc
-	$(COPY) colors.bash $(BASH_DIR)
-	$(COPY)	style.bash $(BASH_DIR)
 
 ##### ##### ##### ##### #####
 # Start of Vim related rules
@@ -75,14 +79,19 @@ Xresources: X11etc
 	$(COPY) Xresources.config $(X11_DIR)
 	$(SYMLINK) $(X11_DIR)/Xresources.config $(HOME)/.Xresources
 
-xshared: X11etc
-	$(COPY) xshared.bash $(X11_DIR)
+file_xshared = "xshared.bash"
+xshared: X11etc Xresources
+	$(COPY) $(file_xshared) $(X11_DIR)
 
+file_xinitrc = "xinitrc.bash"
+link_xinitrc = ".xinitrc"
 xinitrc: X11etc xshared
-	$(COPY) xinitrc.bash $(X11_DIR)
-	$(SYMLINK) $(X11_DIR)/xinitrc.bash $(HOME)/.xinitrc
+	$(COPY) $(file_xinitrc) $(X11_DIR)
+	$(SYMLINK) $(X11_DIR)/$(file_xinitrc) $(HOME)/$(link_xinitrc)
 
+file_xprofile = "xprofile.bash"
+link_xprofile = ".xprofile"
 xprofile: X11etc xshared
-	$(COPY) xprofile.bash $(X11_DIR)
-	$(SYMLINK) $(X11_DIR)/xprofile.bash $(HOME)/.xprofile
+	$(COPY) $(file_xprofile) $(X11_DIR)
+	$(SYMLINK) $(X11_DIR)/$(file_xprofile) $(HOME)/$(link_xprofile)
 
