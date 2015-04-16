@@ -12,7 +12,7 @@ fi
 
 if [ -f "${HOME}/.localxinitrc" ]; then
   source "${HOME}/.localxinitrc"
-else
+fi
 
 if [ ! $# -eq 0 ]; then
   exec $@
