@@ -73,7 +73,7 @@ X11etc:
 
 Xresources: X11etc
 	$(COPY) Xresources.config $(X11_DIR)
-	$(SYMLINK) $(X11_DIR)/Xresources.X11 $(HOME)/.Xresources
+	$(SYMLINK) $(X11_DIR)/Xresources.config $(HOME)/.Xresources
 
 xinitrc: X11etc
 	$(COPY) xinitrc.bash $(X11_DIR)

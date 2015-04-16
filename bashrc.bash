@@ -1,15 +1,22 @@
 #!/bin/bash
 
+# local configurations -- Pre-script
+if [ -f "${HOME}/.localbashrc" ]; then
+  LOCALBASHRC="pre"
+  source "${HOME}/.localbashrc"
+  unset LOCALBASHRC
+fi
+
 # includes
 srcdir="$HOME/.envir/etc/bash"
 source "$srcdir/style.bash"
 
 # path
 if [[ ! "$PATH" == ?(*:)"${HOME}/bin"?(:*) ]]; then
-  PATH+=":${HOME}/bin"
+  PATH="${HOME}/bin:${PATH}"
 fi
 if [[ ! "$PATH" == ?(*:)"${HOME}/.cabal/bin"?(:*) ]]; then
-  PATH+=":${HOME}/.cabal/bin"
+  PATH="${HOME}/.cabal/bin:${PATH}"
 fi
 # environment variables
 pick_visual() {
@@ -96,8 +103,10 @@ alias wget-mirror="wget --mirror --convert-links --adjust-extension --page-requi
 # shopt
 shopt -s checkwinsize
 
-# local configurations
+# local configurations -- Post-script
 if [ -f "${HOME}/.localbashrc" ]; then
+  LOCALBASHRC="post"
   source "${HOME}/.localbashrc"
+  unset LOCALBASHRC
 fi
 
