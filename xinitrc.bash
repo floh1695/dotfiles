@@ -14,5 +14,11 @@ if [ -f "${HOME}/.localxinitrc" ]; then
   source "${HOME}/.localxinitrc"
 fi
 
-exec i3 >> "$HOME/.i3/log.txt"
+if [ ! $# -eq 0 ]; then
+  exec $@
+elif type i3 > /dev/null; then
+  exec i3 >> "$HOME/.i3/log.txt"
+else
+  echo -e "\n\n\n\n##### #####\n# Failed to load\n##### #####"
+fi
 

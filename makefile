@@ -78,4 +78,5 @@ Xresources: X11etc
 xinitrc: X11etc
 	$(COPY) xinitrc.bash $(X11_DIR)
 	$(SYMLINK) $(X11_DIR)/xinitrc.bash $(HOME)/.xinitrc
+	$(SYMLINK) $(X11_DIR)/xinitrc.bash $(HOME)/.xprofile
 
