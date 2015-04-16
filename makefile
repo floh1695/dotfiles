@@ -75,11 +75,14 @@ Xresources: X11etc
 	$(COPY) Xresources.config $(X11_DIR)
 	$(SYMLINK) $(X11_DIR)/Xresources.config $(HOME)/.Xresources
 
-xinitrc: X11etc
+xshared: X11etc
+	$(COPY) xshared.bash $(X11_DIR)
+
+xinitrc: X11etc xshared
 	$(COPY) xinitrc.bash $(X11_DIR)
 	$(SYMLINK) $(X11_DIR)/xinitrc.bash $(HOME)/.xinitrc
 
-xprofile: X11etc
+xprofile: X11etc xshared
 	$(COPY) xprofile.bash $(X11_DIR)
 	$(SYMLINK) $(X11_DIR)/xprofile.bash $(HOME)/.xprofile
 
