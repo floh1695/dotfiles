@@ -15,3 +15,7 @@ if [ -f "${HOME}/.localxinitrc" ]; then
   source "${HOME}/.localxinitrc"
 fi
 
+if [ -f "${HOME}/.xbindkeysrc" ]; then
+    xbindkeys
+fi
+
