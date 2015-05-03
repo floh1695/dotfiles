@@ -16,6 +16,6 @@ if [ -f "${HOME}/.localxinitrc" ]; then
 fi
 
 if [ -f "${HOME}/.xbindkeysrc" ]; then
-    xbindkeys
+    xbindkeys -p
 fi
 
