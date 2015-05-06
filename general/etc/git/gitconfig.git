@@ -1,0 +1,9 @@
+[user]
+	email = cbayley95@gmail.com
+	name = Charles Bayley
+
+[alias] tree = log --graph --decorate --pretty=oneline --abbrev-commit
+
+[core]
+  excludesfile = /home/cbayley/.gitignore
+

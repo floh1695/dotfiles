@@ -1,0 +1,11 @@
+# Temporary and Backup Files
+*~
+*.swp
+*.swo
+\#*#
+
+# Compiled Files
+*.o
+*.exe
+*.out
+
