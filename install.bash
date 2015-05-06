@@ -10,6 +10,10 @@ selected_dir="${envir_dir}/selected"             # A symlink to the currently
 mkdir -p "${envir_dir}"
 ln -sr "${selected_dir}/bin" "${HOME}/bin"
 
+# Install universal tools
+cp -f "bashrc.bash"       "${HOME}/.bashrc"
+cp -f "bash_profile.bash" "${HOME}/.bash_profile"
+
 # Install environments
 #     TODO: Make it so the user can choose which environments to install.
 #           For now I'll just install all environments
