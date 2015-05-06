@@ -1,15 +1,7 @@
 #!/bin/bash
 
-# local configurations -- Pre-script
-if [ -f "${HOME}/.localbashrc" ]; then
-  LOCALBASHRC="pre"
-  source "${HOME}/.localbashrc"
-  unset LOCALBASHRC
-fi
-
 # includes
-srcdir="$HOME/.envir/etc/bash"
-source "$srcdir/style.bash"
+source "style.bash"
 
 # path
 if [[ ! "$PATH" == ?(*:)"${HOME}/bin"?(:*) ]]; then
