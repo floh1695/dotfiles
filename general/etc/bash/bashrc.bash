@@ -93,10 +93,3 @@ alias dirs='dirs -v'
 # shopt
 shopt -s checkwinsize
 
-# local configurations -- Post-script
-if [ -f "${HOME}/.localbashrc" ]; then
-  LOCALBASHRC="post"
-  source "${HOME}/.localbashrc"
-  unset LOCALBASHRC
-fi
-
