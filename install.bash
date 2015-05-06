@@ -8,7 +8,7 @@ selected_dir="${envir_dir}/selected"             # A symlink to the currently
 
 # Set up directories/files that are static
 mkdir -p "${envir_dir}"
-ln -sr "${selected_dir}/bin" "${HOME}/bin"
+ln -srf "${selected_dir}/bin" "${HOME}/bin"
 
 # Install universal tools
 cp -f "bashrc.bash"       "${HOME}/.bashrc"
@@ -22,5 +22,5 @@ cp -rf "general" "${envir_dir}"
 # Select an environment
 #     TODO: Make this a user selected choice.
 #           For now it should be fine to hard code the general environment
-ln -sr "${selected_dir}" "general"
+ln -sr "general" "${selected_dir}"
 
