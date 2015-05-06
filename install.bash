@@ -17,7 +17,7 @@ cp -f "bash_profile.bash" "${HOME}/.bash_profile"
 # Install environments
 #     TODO: Make it so the user can choose which environments to install.
 #           For now I'll just install all environments
-cp -rf "general"
+cp -rf "general" "${envir_dir}"
 
 # Select an environment
 #     TODO: Make this a user selected choice.
