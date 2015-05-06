@@ -22,7 +22,5 @@ cp -rf "general" "${envir_dir}"
 # Select an environment
 #     TODO: Make this a user selected choice.
 #           For now it should be fine to hard code the general environment
-if [ ! -d "${selected_dir}" ]; then
-    ln -sr "./general" "${selected_dir}"
-fi
+ln -sri "${envir_dir}/general" "${selected_dir}"
 
