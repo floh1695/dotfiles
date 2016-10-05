@@ -1,112 +1,73 @@
-#!/bin/bash
+#####
+# ~/.bashrc
+#
+# NOTE: This is a simple bashrc script
+#####
 
-# local configurations -- Pre-script
-if [ -f "${HOME}/.localbashrc" ]; then
-  LOCALBASHRC="pre"
-  source "${HOME}/.localbashrc"
-  unset LOCALBASHRC
-fi
+[[ $- != *i* ]] && return
 
-# includes
-srcdir="$HOME/.envir/etc/bash"
-source "$srcdir/style.bash"
+#####
+# PS Variables
+# Broke the PS1 into multiple lines since I care about line length.
+# Example output:
+#   [user@host ~]$ echo high \
+#   ...$ dare
+#   high dare
+#####
+PS1=""
+PS1+="\[\e[36m\]["
+PS1+="\[\e[33m\]\u"
+PS1+="\[\e[34m\]@"
+PS1+="\[\e[33m\]\h"
+PS1+="\[\e[0m\] "
+PS1+="\[\e[32m\]\W"
+PS1+="\[\e[36m\]]"
+PS1+="\[\e[33m\]\$"
+PS1+="\[\e[0m\] "
+PS2=""
+PS2+="\[\e[36m\]..."
+PS2+="\[\e[33m\]\$"
+PS2+="\[\e[0m\] "
+export PS1
+export PS2
 
-# path
-if [[ ! "$PATH" == ?(*:)"${HOME}/bin"?(:*) ]]; then
-  PATH="${HOME}/bin:${PATH}"
-fi
-if [[ ! "$PATH" == ?(*:)"${HOME}/.cabal/bin"?(:*) ]]; then
-  PATH="${HOME}/.cabal/bin:${PATH}"
-fi
-# environment variables
-pick_visual() {
-  if type vim &> /dev/null; then
-    VISUAL="vim"
-  elif type emacs &> /dev/null; then
-    VISUAL="emacs -nw"
-  elif type vi &> /dev/null; then
-    VISUAL="vi"
-  elif type nano &> /dev/null; then
-    VISUAL="nano"
-  fi
-  export VISUAL
-  export EDITOR="${VISUAL}"
-  unset -f pick_visual
-}
-pick_pager() {
-  if type less &> /dev/null; then
-    export LESS="-R"
-    PAGER="less"
-  elif type more &> /dev/null; then
-    PAGER="more"
-  fi
-  export PAGER
-  unset -f pick_pager
-}
-pick_browser() {
-  if type firefox &> /dev/null; then
-    BROWSER="firefox"
-  elif type chromium &> /dev/null; then
-    BROWSER="chromium"
-  elif type opera &> /dev/null; then
-    BROWSER="opera"
-  elif type midori &> /dev/null; then
-    BROWSER="midori"
-  fi
-  export BROWSER
-  unset -f pick_browser
-}
-pick_visual
-pick_pager
-pick_browser
-printvars() {
-  echo "PATH:    $PATH"
-  echo "EDITOR:  $EDITOR"
-  echo "VISUAL:  $VISUAL"
-  echo "PAGER:   $PAGER"
-  echo "BROWSER: $BROWSER"
-}
-
+#####
 # Aliases
-alias ls='ls --color=auto -Fh'
-alias ll='ls -l'
-alias la='ll -a'
-alias lr='ll -R'
-alias l='ls -C'
-alias c='clear'
-alias clear="source $HOME/.bashrc; command clear"
-pushd() {
-  if [ $# -eq 0 ]; then
-    DIR="${HOME}"
-  else
-    DIR="$1"
-  fi
-  if [ -d "${DIR}" ]; then
-    builtin pushd "${DIR}" &> /dev/null
-  else
-    echo "no directory: \"${DIR}\""
-  fi
-}
-pushd_builtin() {
-  builtin pushd &> /dev/null
-}
-popd() {
-  builtin popd &> /dev/null
-}
-alias cd='pushd'
-alias back='popd'
-alias flip='pushd_builtin'
-alias dirs='dirs -v'
+#####
+# --color=auto :  Turn on color mode.
+# -A           :  Do not list the files '.' and '..' .
+# -B           :  Do not list file fitting '*~' .
+# -C           :  Force entries to align to columns.
+# -F           :  Add one of '*/=@|' to special files.
+# -b           :  Print nonprinting charactures as octal escapes
+# -h           :  Print file sizes in terms of K, M, G, etc. .
+alias ls="ls --color=auto -ABCFbh"
 
-alias wget-mirror="wget --mirror --convert-links --adjust-extension --page-requisites --no-parent"
-
-# shopt
-shopt -s checkwinsize
-
-# local configurations -- Post-script
-if [ -f "${HOME}/.localbashrc" ]; then
-  LOCALBASHRC="post"
-  source "${HOME}/.localbashrc"
-  unset LOCALBASHRC
+#####
+# Ruby related stuffs
+#####
+if which ruby >/dev/null && \
+    which gem >/dev/null; then
+    [[ ":$PATH:" != \
+       *":$(ruby -rubygems -e 'puts Gem.user_dir')/bin:"* ]] && \
+       PATH+=":$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
+    export PATH
 fi
+
+#####
+# Standard export variables
+#####
+export VISUAL=vim
+
+#####
+# NOTE: This will load a system specific bashrc that will clobber
+#   anything done here
+#####
+[[ -f ~/.extend.bashrc ]] && . ~/.extend.bashrc
+
+#####
+# NOTE: This should load auto completion stuffs
+#####
+[ -r /usr/share/bash-completion/bash_completion   ] && \
+    . /usr/share/bash-completion/bash_completion
 
