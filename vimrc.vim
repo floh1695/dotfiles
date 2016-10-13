@@ -8,10 +8,11 @@ set expandtab
 set number
 set showmatch
 set wildmenu
+set ruler
 syntax enable
 
 "Mouse related
-"set mouse=a
+set mouse=
 
 "Folds
 set foldenable
