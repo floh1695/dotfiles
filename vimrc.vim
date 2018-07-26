@@ -14,6 +14,8 @@ syntax enable
 set nocompatible
 set backspace=indent,eol,start
 
+set autochdir
+
 " Mouse related
 set mouse=
 
