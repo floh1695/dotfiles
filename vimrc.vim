@@ -11,6 +11,10 @@ set wildmenu
 set ruler
 syntax enable
 
+highlight ColorColumn ctermbg=4
+highlight ColorColumn guibg=Black
+set colorcolumn=60,80,100,120
+
 set nocompatible
 set backspace=indent,eol,start
 
